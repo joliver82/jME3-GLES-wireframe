@@ -32,6 +32,7 @@ Just load the project with latest Android Studio (Tested using 4.1.2) and run
 ## References
 
 * This simple project used the jme3 template from https://github.com/noncom/jme-android-example but updated to current Android Studio and SDK
+* Designed for jMonkeyEngine 3 https://github.com/jMonkeyEngine/jmonkeyengine/
 * The main reference is https://github.com/martin-pr/possumwood/wiki/Wireframe-using-a-Geometry-Shader 
 
 More on wireframe rendering on GLES:
