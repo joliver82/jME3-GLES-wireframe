@@ -12,7 +12,7 @@ Vertex shader: Uses all current jme3 stuff at vertex shaders (morph, skinning...
 
 Geometry shader: As said, just changes the triangles into line strips. 
 
-Fragment shader: Paints the requested color. Can set Color and VertexColor
+Fragment shader: Paints the requested color. You can set Color and/or VertexColor same way you would do when using jme3's Unshaded material
 
 
 ## Future work
