@@ -40,6 +40,7 @@ More on wireframe rendering on GLES:
 * https://www.geeks3d.com/hacklab/20180514/demo-wireframe-shader-opengl-3-2-and-opengl-es-3-1/
 * https://www.reddit.com/r/opengl/comments/34dhi7/wireframe_shader/
 * https://tchayen.github.io/wireframes-with-barycentric-coordinates/
+* https://stackoverflow.com/questions/137629/how-do-you-render-primitives-as-wireframes-in-opengl
 
 ## License
 
