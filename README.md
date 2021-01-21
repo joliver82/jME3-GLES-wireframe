@@ -8,7 +8,7 @@ The implementation is based on the simplest method from https://github.com/marti
 
 ## Impl details
 
-Vertex shader: Uses all current jme3 stuff being able to use this material.
+Vertex shader: Uses all current jme3 stuff at vertex shaders (morph, skinning...) being able to use this material without any aditional code.
 
 Geometry shader: As said, just changes the triangles into line strips. 
 
