@@ -1,4 +1,4 @@
-lo  # jME GLES Wireframe render
+# jME GLES Wireframe render
 
 ## About
 
