@@ -56,13 +56,13 @@ Android screenshot:
 
 ## References
 
-* This simple project used the jme3 template from https://github.com/noncom/jme-android-example but updated to current Android Studio and SDK
+* This simple project used the jme3 template from https://github.com/noncom/jme-android-example but updated to current Android Studio and SDK. Feel free to use this as base template for your jME3 android projects
 * Designed for jMonkeyEngine 3 https://github.com/jMonkeyEngine/jmonkeyengine/
 * Using Heart library from stephengold https://github.com/stephengold/Heart
-* The main reference is https://github.com/martin-pr/possumwood/wiki/Wireframe-using-a-Geometry-Shader 
 
-More on wireframe rendering on GLES:
+Wireframe rendering on GLES references:
 
+* https://github.com/martin-pr/possumwood/wiki/Wireframe-using-a-Geometry-Shader 
 * https://github.com/rreusser/glsl-solid-wireframe
 * https://www.geeks3d.com/hacklab/20180514/demo-wireframe-shader-opengl-3-2-and-opengl-es-3-1/
 * https://www.reddit.com/r/opengl/comments/34dhi7/wireframe_shader/
