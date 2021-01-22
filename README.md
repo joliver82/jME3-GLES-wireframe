@@ -27,7 +27,7 @@ The mesh is expanded so you have the full list of triangles without any indexing
 
 Vertex shader: It works as usual calculating gl_Position but we're just keeping the normal as it is (AKA bary coord).
 
-Fragment shader: Calculates the minimal distance to the edge and sets alpha accordingly, if distance<0.02 sets alpha>0
+Fragment shader: Calculates the minimal distance to the edge and sets alpha accordingly, if distance<0.02 sets alpha>0. It uses the requested color. You can set Color and/or VertexColor same way you would do when using jme3's Unshaded material
 
 From the jme3 side, the material is set to avoid depth writes and tests and also disables face culling so we can use this for debug shapes
 
