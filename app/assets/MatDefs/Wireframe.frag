@@ -15,7 +15,5 @@ void main(){
         color *= m_Color;
     #endif
 
-    // Add barycentric calc
-
     gl_FragColor = color;
 }
