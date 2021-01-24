@@ -5,7 +5,7 @@
 This is an android jme3 project showing two different wireframe rendering methods GLES:
 
 * Geometry shader implementation: Using this method requires openGLES >= 3.2 and Android API level 24 (Android 7) or newer.
-* Barycentric coordinates implementation: This method is available to any openGLES version without API level limitatino.
+* Barycentric coordinates implementation: This method is available to any openGLES version without API level limitation.
 
 The app requires API level 24 (Android 7) or newer, this could be lowered if removing the code making use of Wireframe.j3md
 
@@ -23,11 +23,11 @@ Fragment shader: Paints the requested color. You can set Color and/or VertexColo
 
 ## Barycentric coordinates implementation details
 
-The mesh is expanded so you have the full list of triangles without any indexing. Then the bary coords are set as follows: v1(1,0,0), v2(0,1,0), v3(0,0,1). This data is stored in the normal buffer because it matches our type and size requirements and we don't need normals as we're rendering wireframe. 
+The mesh is expanded so you have the full list of triangles without any indexing. Then the bary coords are set as follows: v1(1,0,0), v2(0,1,0), v3(0,0,1) for each triangle. This data is stored in the normal buffer because it matches our type and size requirements and we don't need normals as we're rendering wireframe. This could cause bad behaviour with inner jme stuff like skinning (has not been tested)
 
-Vertex shader: It works as usual calculating gl_Position but we're just keeping the normal as it is.
+Vertex shader: It works as usual calculating gl_Position but we're just keeping the normal as it is (AKA bary coord).
 
-Fragment shader: Calculates the minimal distance to the edge and sets alpha accordingly, if distance<0.2 sets alpha>0
+Fragment shader: Calculates the minimal distance to the edge and sets alpha accordingly, if distance<0.02 sets alpha>0. It uses the requested color. You can set Color and/or VertexColor same way you would do when using jme3's Unshaded material
 
 Improved rendering to use "newer" GLSL capabilities (fwidth) so wireframe lines have static width when possible, otherwise fallback to previous implementation having worse looking.
 
@@ -36,7 +36,7 @@ Improved rendering to use "newer" GLSL capabilities (fwidth) so wireframe lines 
 Not sure I'll spend more time or not into this, but...
 
 * Implement any of the other techniques from @martin-pr's tutorial for better looking and/or more configurability.
-* Implement non geometry shader wireframe rendering based on barycentric coordinates. This will imply CPU code and duplicating vertex information in memory but will support openGL ES <3.2.
+* Implement non geometry shader wireframe rendering based on barycentric coordinates. This will imply CPU code and duplicating vertex information in memory but will support openGL ES <3.2. --> Done
 * Include this info jme3 core.
 
 
@@ -55,13 +55,13 @@ Android screenshot:
 
 ## References
 
-* This simple project used the jme3 template from https://github.com/noncom/jme-android-example but updated to current Android Studio and SDK
+* This simple project used the jme3 template from https://github.com/noncom/jme-android-example but updated to current Android Studio and SDK. Feel free to use this as base template for your jME3 android projects
 * Designed for jMonkeyEngine 3 https://github.com/jMonkeyEngine/jmonkeyengine/
 * Using Heart library from stephengold https://github.com/stephengold/Heart
-* The main reference is https://github.com/martin-pr/possumwood/wiki/Wireframe-using-a-Geometry-Shader 
 
-More on wireframe rendering on GLES:
+Wireframe rendering on GLES references:
 
+* https://github.com/martin-pr/possumwood/wiki/Wireframe-using-a-Geometry-Shader 
 * https://github.com/rreusser/glsl-solid-wireframe
 * https://www.geeks3d.com/hacklab/20180514/demo-wireframe-shader-opengl-3-2-and-opengl-es-3-1/
 * https://www.reddit.com/r/opengl/comments/34dhi7/wireframe_shader/
