@@ -29,8 +29,7 @@ Vertex shader: It works as usual calculating gl_Position but we're just keeping 
 
 Fragment shader: Calculates the minimal distance to the edge and sets alpha accordingly, if distance<0.2 sets alpha>0
 
-From the jme3 side, the material is set to avoid depth writes and tests and also disables face culling so we can use this for debug shapes
-
+Improved rendering to use "newer" GLSL capabilities (fwidth) so wireframe lines have static width when possible, otherwise fallback to previous implementation having worse looking.
 
 ## Future work
 
@@ -45,7 +44,7 @@ Not sure I'll spend more time or not into this, but...
 
 Just load the project with latest Android Studio (Tested using 4.1.2) and run 
 
-The sample app shows three spheres from left to right: Geometry shader approach, jME3 default wireframe mode (will render solid on android) and Barycentric coordinates approach.
+The sample app shows four spheres from left to right, top to bottom: jME3 default wireframe mode (will render solid on android), Barycentric coordinates approach mimicing jME3's default, Geometry shader approach and Barycentric coordinates approach mimicing geometry shader approach.
 
 Desktop screenshot:
 ![Alt text](/screenshots/wireframe-desktop.png?raw=true "Desktop screenshot")

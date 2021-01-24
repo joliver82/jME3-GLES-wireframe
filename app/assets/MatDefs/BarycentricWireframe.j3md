@@ -18,8 +18,8 @@ MaterialDef Wireframe {
     }
 
      Technique {
-        VertexShader GLSL100 GLSL150:   MatDefs/BarycentricWireframe.vert
-        FragmentShader GLSL100 GLSL150: MatDefs/BarycentricWireframe.frag
+        VertexShader GLSL300 GLSL100:   MatDefs/BarycentricWireframe.vert
+        FragmentShader GLSL300 GLSL100: MatDefs/BarycentricWireframe.frag
 
         WorldParameters {
             WorldViewProjectionMatrix
@@ -38,9 +38,6 @@ MaterialDef Wireframe {
 
         RenderState {
             Blend AlphaAdditive
-            DepthWrite Off
-            DepthTest Off
-            FaceCull Off
         }
 
     }
