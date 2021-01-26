@@ -5,7 +5,7 @@ buildscript {
         google()
         jcenter()
         maven {
-            url 'http://dl.bintray.com/jmonkeyengine/org.jmonkeyengine'
+            url 'https://dl.bintray.com/jmonkeyengine/org.jmonkeyengine'
         }
         maven {
             url 'https://maven.google.com/'
@@ -26,7 +26,7 @@ allprojects {
         google()
         jcenter()
         maven {
-            url 'http://dl.bintray.com/jmonkeyengine/org.jmonkeyengine'
+            url 'https://dl.bintray.com/jmonkeyengine/org.jmonkeyengine'
         }
         maven {
             url 'https://maven.google.com/'
@@ -44,6 +44,7 @@ project(":core") {
     dependencies {
         implementation 'org.jmonkeyengine:jme3-core:' + jmeversion
         implementation 'com.github.stephengold:Heart:6.2.0'
+        implementation 'org.joliver82:jme3-wireframe:1.0.1'
     }
 }
 

@@ -25,7 +25,8 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    //implementation 'com.android.support:appcompat-v7'
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    // Depending on compileSDK and targetSDK you need to use either old appcompat (<28) or androidx appcompat (>=28)
+    //implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'androidx.appcompat:appcompat:1.2+'
     testImplementation 'junit:junit:4.12'
 }
