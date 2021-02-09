@@ -31,31 +31,52 @@ public class Game extends SimpleApplication {
         matWireframeBarycentricNotCulling.getAdditionalRenderState().setFaceCullMode(RenderState.FaceCullMode.Off);
         matWireframeBarycentricNotCulling.getAdditionalRenderState().setDepthTest(false); //Disabled depth test because some backfaces were not rendered properly
 
+        Material matWireframeBarycentricNormals = new Material(assetManager, "MatDefs/BarycentricWireframeNormals.j3md");
+        matWireframeBarycentricNormals.setColor("Color", ColorRGBA.Yellow);
+        Material matWireframeBarycentricNormalsNotCulling = new Material(assetManager, "MatDefs/BarycentricWireframeNormals.j3md");
+        matWireframeBarycentricNormalsNotCulling.setColor("Color", ColorRGBA.Magenta);
+        matWireframeBarycentricNormalsNotCulling.getAdditionalRenderState().setFaceCullMode(RenderState.FaceCullMode.Off);
+        matWireframeBarycentricNormalsNotCulling.getAdditionalRenderState().setDepthTest(false); //Disabled depth test because some backfaces were not rendered properly
+
         // Uses jme3 renderstate wireframe
         Geometry geometry0 = new Geometry("S0", new Sphere(10, 10, 1));
-        geometry0.setLocalTranslation(-1.5f, 1.5f, 0);
+        geometry0.setLocalTranslation(-3f, 1.5f, 0);
         geometry0.setMaterial(mat);
         rootNode.attachChild(geometry0);
 
         // Uses geometry shader aproach
         Geometry geometry1 = new Geometry("S1", new Sphere(10, 10, 1));
-        geometry1.setLocalTranslation(-1.5f, -1.5f, 0);
+        geometry1.setLocalTranslation(-3f, -1.5f, 0);
         geometry1.setMaterial(wireframeMat);
         rootNode.attachChild(geometry1);
 
-        // Uses Barycentric coordinates aproach
+        // Uses Barycentric coordinates aproach (Reserved0)
         Mesh barySphere0 = BarycentricCoordGenerator.setBarycentricCoords(new Sphere(10, 10, 1));
         Geometry geometry2 = new Geometry("S2", barySphere0);
-        geometry2.setLocalTranslation(1.5f, 1.5f, 0);
+        geometry2.setLocalTranslation(0f, 1.5f, 0);
         geometry2.setMaterial(matWireframeBarycentric);
         rootNode.attachChild(geometry2);
 
-        // Uses Barycentric coordinates aproach
+        // Uses Barycentric coordinates aproach (Reserved0)
         Mesh barySphere1 = BarycentricCoordGenerator.setBarycentricCoords(new Sphere(10, 10, 1));
         Geometry geometry3 = new Geometry("S3", barySphere1);
-        geometry3.setLocalTranslation(1.5f, -1.5f, 0);
+        geometry3.setLocalTranslation(0f, -1.5f, 0);
         geometry3.setMaterial(matWireframeBarycentricNotCulling);
         rootNode.attachChild(geometry3);
+
+        // Uses Barycentric coordinates aproach (Normals)
+        Mesh barySphere2 = BarycentricCoordGenerator.setBarycentricCoordsOverNormals(new Sphere(10, 10, 1));
+        Geometry geometry4 = new Geometry("S2", barySphere2);
+        geometry4.setLocalTranslation(3f, 1.5f, 0);
+        geometry4.setMaterial(matWireframeBarycentricNormals);
+        rootNode.attachChild(geometry4);
+
+        // Uses Barycentric coordinates aproach (Normals)
+        Mesh barySphere3 = BarycentricCoordGenerator.setBarycentricCoordsOverNormals(new Sphere(10, 10, 1));
+        Geometry geometry5 = new Geometry("S3", barySphere3);
+        geometry5.setLocalTranslation(3f, -1.5f, 0);
+        geometry5.setMaterial(matWireframeBarycentricNormalsNotCulling);
+        rootNode.attachChild(geometry5);
     }
 
 }

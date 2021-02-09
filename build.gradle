@@ -11,6 +11,8 @@ buildscript {
             url 'https://maven.google.com/'
             name 'Google'
         }
+        maven { url "https://jitpack.io" }
+        //mavenLocal()
     }
 
     dependencies {
@@ -33,6 +35,7 @@ allprojects {
             name 'Google'
         }
         maven { url "https://jitpack.io" }
+        //mavenLocal()
     }
 
 }
@@ -44,7 +47,7 @@ project(":core") {
     dependencies {
         implementation 'org.jmonkeyengine:jme3-core:' + jmeversion
         implementation 'com.github.stephengold:Heart:6.2.0'
-        implementation 'org.joliver82:jme3-wireframe:1.0.1'
+        implementation 'com.github.joliver82:jme3-wireframe:1.0.2'
     }
 }
 
